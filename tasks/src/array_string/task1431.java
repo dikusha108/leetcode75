@@ -1,3 +1,5 @@
+package array_string;
+
 import org.junit.Test;
 
 import java.util.ArrayList;
