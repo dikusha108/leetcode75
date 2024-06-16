@@ -51,10 +51,31 @@ public class task392 {
         return false;
     }
 
+    public boolean isSubsequenceFast(String s, String t) {
+        char[] s1 = s.toCharArray();
+        String temp = t;
+        boolean res = false;
+        if(s.length()== 0)
+            return true;
+
+        for(int i =0;i<s1.length;i++)
+        {
+            if(temp.indexOf(s1[i])!= -1) //if t contains s1[i]
+            {
+                res = true;
+                temp = temp.substring(temp.indexOf(s1[i])+1);
+            }
+            else return false;
+        }
+
+        return res;
+    }
+
     @Test
     public void test() {
         assert(!isSubsequence("axc", "ahbgdc"));
         assert(isSubsequence("abc", "ahbgdc"));
+        assert(isSubsequenceFast("abc", "ahbgdc"));
         assert(isSubsequence("", "ahbgdc"));
         assert(isSubsequence("", ""));
         assert(!isSubsequence("abc", ""));
